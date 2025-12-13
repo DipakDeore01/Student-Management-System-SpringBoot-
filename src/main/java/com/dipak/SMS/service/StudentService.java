@@ -5,7 +5,8 @@ import com.dipak.SMS.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
+
 
 @Service
 public class StudentService {
@@ -28,5 +29,13 @@ public class StudentService {
         } else {
             return "Enter Correct Password...";
         }
+    }
+
+    public List<Student> viewAllStudent() {
+        return repo.findAll();
+    }
+
+    public Student viewStudentByEmail(String email) {
+        return repo.findByEmail(email);
     }
 }
