@@ -44,4 +44,29 @@ public class StudentController {
         Student student = service.viewStudentByEmail(email);
         return ResponseEntity.ok(student);
     }
+
+    @GetMapping("/byDepartment/{department}")
+    public ResponseEntity<List<Student>> viewStudentByDepartment(@PathVariable String department) {
+        List<Student> students = service.viewStudentByDepartment(department);
+        return ResponseEntity.ok(students);
+    }
+
+    @GetMapping("/byCourse/{course}")
+    public ResponseEntity<List<Student>> viewByCourse(@PathVariable String course){
+        List<Student> students = service.viewByCourse(course);
+        return ResponseEntity.ok(students);
+    }
+
+    @GetMapping("/byYear/{year}")
+    public ResponseEntity<List<Student>> viewByCourse(@PathVariable int year){
+        List<Student> students = service.viewByYear(year);
+        return ResponseEntity.ok(students);
+    }
+
+    @GetMapping("/existsByEmail/{email}")
+    public ResponseEntity<Boolean> existsByEmail(@PathVariable String email) {
+        boolean exists = service.existsByEmail(email);
+        return ResponseEntity.ok(exists);
+    }
+
 }

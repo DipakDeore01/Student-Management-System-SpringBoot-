@@ -38,4 +38,20 @@ public class StudentService {
     public Student viewStudentByEmail(String email) {
         return repo.findByEmail(email);
     }
+
+    public List<Student> viewStudentByDepartment(String department){
+        return repo.findByDepartment(department);
+    }
+
+    public List<Student> viewByCourse(String course){
+        return repo.findByCourse(course);
+    }
+
+    public List<Student> viewByYear(int year){
+        return repo.findByYear(year);
+    }
+
+    public boolean existsByEmail(String email){
+        return repo.existsByEmail(email);
+    }
 }
